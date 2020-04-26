@@ -4,5 +4,29 @@
 
 @section('content')
 <h1>Контакты</h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi venenatis, lectus quis lacinia vehicula, ipsum nunc semper elit, at aliquam enim est sit amet neque. Sed vulputate nisl et tortor condimentum efficitur sed sit amet tortor. Quisque odio nunc, elementum vitae diam eget, mattis auctor urna. Morbi rutrum magna vulputate vulputate vulputate. Phasellus a pellentesque lectus. Duis risus metus, elementum quis velit tempus, sollicitudin bibendum massa. Morbi vitae faucibus lectus, ac semper dolor. Integer tristique hendrerit ornare. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+<form action="{{ route('contact-form') }}" method="post">
+    @csrf
+
+    <div class="form-group">
+        <label for="name">Имя</label>
+        <input type="text" name="name" placeholder="Введите имя" id="name" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for="name">Почта</label>
+        <input type="text" name="email" placeholder="Введите почту" id="email" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for="name">Тема сообщения</label>
+        <input type="text" name="subject" placeholder="Введите тему сообщения" id="subject" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for="message">Сообщение</label>
+        <textarea name="message" id="message" placeholder="Введите сообщение" class="form-control"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-success">Отправить</button>
+</form>
 @endsection
