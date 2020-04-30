@@ -6,6 +6,7 @@
         <a class="p-2 text-dark" href="{{ route('catalog')}}">Каталог</a>
         <a class="p-2 text-dark" href="{{ route('blog')}}">Блог</a>
         <a class="p-2 text-dark" href="{{ route('contacts')}}">Контакты</a>
+        <a class="p-2 text-dark" href="{{ route('contact-messages')}}">Список заявок</a>
     </nav>
     <a class="btn btn-outline-primary" href="#">Sign up</a>
 </div>
