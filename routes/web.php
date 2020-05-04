@@ -6,6 +6,10 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
+Route::get('/admin', function () {
+    return view('admin.home');
+})->name('admin');
+
 Route::get('/catalog', function () {
     return view('catalog');
 })->name('catalog');
@@ -19,24 +23,24 @@ Route::get('/contacts', function () {
 })->name('contacts');
 
 Route::get(
-    '/contacts/all/{id}',
+    'admin/contacts/all/{id}',
     'ContactsController@oneMessage'
-)->name('contact-message');
+)->name('admin-contacts-message');
 
 Route::get(
-    '/contacts/all/{id}/update',
+    'admin/contacts/all/{id}/update',
     'ContactsController@updateMessage'
-)->name('contact-message-update');
+)->name('admin-contacts-message-update');
 
 Route::post(
-    '/contacts/all/{id}/update',
+    'admin/contacts/all/{id}/update',
     'ContactsController@updateMessageSubmit'
-)->name('contact-message-update-submit');
+)->name('admin-contacts-message-update-submit');
 
 Route::get(
-    '/contacts/all/{id}/delete',
+    'admin/contacts/all/{id}/delete',
     'ContactsController@deleteMessage'
-)->name('contact-message-delete');
+)->name('admin-contacts-message-delete');
 
-Route::get('/contacts/all', 'ContactsController@allMessages')->name('contact-messages');
+Route::get('admin/contacts', 'ContactsController@allMessages')->name('admin-contacts-messages');
 Route::post('/contacts/submit', 'ContactsController@submit')->name('contact-form');

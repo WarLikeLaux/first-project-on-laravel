@@ -26,19 +26,19 @@ class ContactsController extends Controller
         $contacts = new Contact();
         // $contacts->orderBy('id', 'asc')->skip(1)->take(1)->get()
         // $contacts->where('subject', '=', 'Здравствуйте')->get()
-        return view('messages', ['data' => $contacts->all()]);
+        return view('admin.messages', ['data' => $contacts->all()]);
     }
 
     public function oneMessage($id)
     {
         $contacts = new Contact();
-        return view('message', ['data' => $contacts->find($id)]);
+        return view('admin.message', ['data' => $contacts->find($id)]);
     }
 
     public function updateMessage($id)
     {
         $contacts = new Contact();
-        return view('update-message', ['data' => $contacts->find($id)]);
+        return view('admin.update-message', ['data' => $contacts->find($id)]);
     }
 
     public function updateMessageSubmit($id, ContactsRequest $req)
@@ -51,13 +51,14 @@ class ContactsController extends Controller
 
         $contact->save();
 
-        return redirect()->route('contact-message', $id)->with('success', 'Сообщение была обновлено');
+        return redirect()->route('admin-contacts-message', $id)->with('success', 'Сообщение была обновлено');
     }
 
     public function deleteMessage($id)
     {
-        Contact::find($id)->delete();
-
-        return redirect()->route('contact-messages')->with('success', 'Сообщение было удалено');
+        if (Contact::find($id) !== null) {
+            Contact::find($id)->delete();
+        }
+        return redirect()->route('admin-contacts-messages')->with('success', 'Сообщение было удалено');
     }
 }

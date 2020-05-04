@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.layouts.app')
 
 @section('title')Список заявок@endsection
 
@@ -9,7 +9,7 @@
       <h3>{{ $message->subject }}</h3>
       <p>{{ $message->email}}</p>
       <p><small>{{ $message->created_at}}</small></p>
-      <a href="{{ route('contact-message', $message->id) }}"><button class="btn btn-warning">Детальнее</button></a>
+      <a href="{{ route('admin-contacts-message', $message->id) }}"><button class="btn btn-warning">Детальнее</button></a>
     </div>
   @endforeach
 @endsection

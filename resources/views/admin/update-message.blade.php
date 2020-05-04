@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('admin.layouts.app')
 
 @section('title')Обновление записи@endsection
 
 @section('content')
 <h1>Обновление записи</h1>
-<form action="{{ route('contact-message-update-submit', $data->id) }}" method="post">
+<form action="{{ route('admin-contacts-message-update-submit', $data->id) }}" method="post">
     @csrf
 
     <div class="form-group">
