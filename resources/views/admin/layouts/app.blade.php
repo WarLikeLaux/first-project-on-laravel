@@ -11,10 +11,18 @@
 <body>
     @include('admin.inc.header')
     <div class="container mt-5">
-    @include('inc.messages')
+        @include('inc.messages')
         <div class="row">
             <div class="col-12">
+                @yield('content-title')
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8">
                 @yield('content')
+            </div>
+            <div class="col-4">
+                @yield('aside')
             </div>
         </div>
     </div>
